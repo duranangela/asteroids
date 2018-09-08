@@ -6,18 +6,18 @@ class Day
     @asteroids = day_data.second
   end
 
+  def dangerous_ones
+    asteroids.map do |asteroid|
+      asteroid if asteroid.dangerous == true
+    end.compact
+  end
+
+  private
+
   def asteroids
     @asteroids.map do |asteroid|
       Asteroid.new(asteroid)
     end
-  end
-
-  def dangerous_ones
-    dangerous = []
-    asteroids.map do |asteroid|
-      dangerous << asteroid if asteroid.dangerous == true
-    end
-    dangerous
   end
 
 end

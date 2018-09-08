@@ -31,7 +31,6 @@ class AsteroidPresenter
 
   private
 
-
   def days
     service.days.map do |day_data|
       Day.new(day_data)
