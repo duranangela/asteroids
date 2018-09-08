@@ -1,0 +1,12 @@
+<div class='heading'>
+<h2>Most Dangerous Day</h2>
+<%= @presenter.start_date.strftime('%B %e, %Y') %> - <%= @presenter.end_date.strftime('%B %e, %Y') %>
+</div>
+
+<div class='result'>
+<p><%= @presenter.most_dangerous %> has <%= @presenter.number_dangerous %> potentially dangerous near earth objects</p>
+<% @presenter.asteroids.each do |asteroid| %>
+  Name: <%= asteroid.name %>
+  NEO Reference ID: <%= asteroid.ref_id %>
+<% end %>
+</div>
