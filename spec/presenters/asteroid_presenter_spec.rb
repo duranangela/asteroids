@@ -10,8 +10,8 @@ describe AsteroidPresenter do
   context 'instance methods' do
     context '#start_date and #end_date' do
       it 'returns the dates in human readable format' do
-        expect(subject.start_date).to eq('January 1, 2018')
-        expect(subject.end_date).to eq('January 7, 2018')
+        expect(subject.start_date).to eq('January  1, 2018')
+        expect(subject.end_date).to eq('January  7, 2018')
       end
     end
     context '#start and #stop' do

@@ -2,8 +2,8 @@ class AsteroidPresenter
   attr_reader :start_date, :end_date
 
   def initialize(start_date, end_date)
-    @start_date = start_date
-    @end_date = end_date
+    @start_date = Date.parse(start_date).strftime('%B %e, %Y')
+    @end_date = Date.parse(end_date).strftime('%B %e, %Y')
   end
 
   def start
