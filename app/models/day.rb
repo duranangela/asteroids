@@ -12,7 +12,7 @@ class Day
     end
   end
 
-  def dangerous
+  def dangerous_ones
     dangerous = []
     asteroids.map do |asteroid|
       dangerous << asteroid if asteroid.dangerous == true

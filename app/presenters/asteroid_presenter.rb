@@ -1,35 +1,36 @@
-require 'date'
-
 class AsteroidPresenter
   attr_reader :start_date, :end_date
 
   def initialize(start_date, end_date)
-    @start_date = Date.parse(start_date).strftime('%Y-%m-%d')
-    @end_date = Date.parse(end_date).strftime('%Y-%m-%d')
+    @start_date = start_date
+    @end_date = end_date
   end
 
   def start
     date = Date.parse(@start_date)
-    date.strftime('%B %e, %Y')
+    date.strftime('%Y-%m-%d')
   end
 
-  def end
+  def stop
     date = Date.parse(@end_date)
-    date.strftime('%B %e, %Y')
+    date.strftime('%Y-%m-%d')
   end
 
-  def most_dangerous
-    (days.max_by { |day| day.dangerous.count })
+  def most_dangerous_day
+    (days.max_by { |day| day.dangerous_ones.count })
   end
 
   def most_dangerous_date
-    date = Date.parse(most_dangerous.date.to_s)
+    date = Date.parse(most_dangerous_day.date.to_s)
     date.strftime('%B %e, %Y')
   end
 
   def number_dangerous
-    most_dangerous.dangerous.count
+    most_dangerous_day.dangerous_ones.count
   end
+
+  private
+
 
   def days
     service.days.map do |day_data|
@@ -38,7 +39,7 @@ class AsteroidPresenter
   end
 
   def service
-    AsteroidService.new(@start_date, @end_date)
+    AsteroidService.new(start, stop)
   end
 
 end
