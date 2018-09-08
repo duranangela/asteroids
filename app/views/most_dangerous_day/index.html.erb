@@ -1,12 +1,14 @@
-<div class='heading'>
-<h2>Most Dangerous Day</h2>
-<%= @presenter.start_date %> - <%= @presenter.end_date %>
+<div class='heading' style="padding-left:300px">
+<h1>Most Dangerous Day</h1>
+<p><%= @presenter.start %> - <%= @presenter.end %></p>
+<br>
 </div>
 
-<div class='result'>
-<p><%= @presenter.most_dangerous %> has <%= @presenter.number_dangerous %> potentially dangerous near earth objects</p>
-<% @presenter.asteroids.each do |asteroid| %>
-  Name: <%= asteroid.name %>
-  NEO Reference ID: <%= asteroid.ref_id %>
+<div class='result' style="padding-left:300px">
+<p style="color:green"><%= @presenter.most_dangerous_date %> has <%= @presenter.number_dangerous %> potentially dangerous near earth objects</p>
+<% @presenter.most_dangerous.dangerous.each do |asteroid| %>
+  <p>Name: <%= asteroid.name %></p>
+  <p>NEO Reference ID: <%= asteroid.neo_ref_id %></p>
+  <br>
 <% end %>
 </div>

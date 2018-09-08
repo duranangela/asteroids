@@ -1,30 +1,34 @@
 require 'date'
 
 class AsteroidPresenter
+  attr_reader :start_date, :end_date
 
   def initialize(start_date, end_date)
-    @start_date = start_date
-    @end_date = end_date
+    @start_date = Date.parse(start_date).strftime('%Y-%m-%d')
+    @end_date = Date.parse(end_date).strftime('%Y-%m-%d')
   end
 
-  def start_date
+  def start
     date = Date.parse(@start_date)
     date.strftime('%B %e, %Y')
   end
 
-  def end_date
+  def end
     date = Date.parse(@end_date)
     date.strftime('%B %e, %Y')
   end
 
   def most_dangerous
+    (days.max_by { |day| day.dangerous.count })
+  end
+
+  def most_dangerous_date
+    date = Date.parse(most_dangerous.date.to_s)
+    date.strftime('%B %e, %Y')
   end
 
   def number_dangerous
-  end
-
-  def asteroids
-    days
+    most_dangerous.dangerous.count
   end
 
   def days

@@ -22,9 +22,9 @@ class AsteroidService
 
   def params
     {
-      api_key: 'N7fOcxE1sKo8lxhYLEtvfQtDVxQRXK3rJckZ5cB8',
       start_date: start_date,
-      end_date: end_date
+      end_date: end_date,
+      api_key: 'N7fOcxE1sKo8lxhYLEtvfQtDVxQRXK3rJckZ5cB8'
     }
   end
 end
